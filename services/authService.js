@@ -7,7 +7,7 @@ const sendEmail = require('../utils/sendEmail')
 const createToken = require('../utils/createToken')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
-
+const {sanitizeUser} = require('../utils/sanitizeData')
 const User = require('../models/userModel')
 
 
@@ -26,7 +26,7 @@ const user = await User.create({
 // generate Token
 const token = createToken(user._id)
 
-res.status(201).json({data:user,token})
+res.status(201).json({data:sanitizeUser(user),token})
 
 })
 // @desc Login 

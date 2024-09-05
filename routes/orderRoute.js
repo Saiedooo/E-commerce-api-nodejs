@@ -31,4 +31,5 @@ router.route("/:id").get(findSpecificOrder);
 router.put('/:id/pay', authService.allowedTo("admin", "manger"),updateOrderToPaid)
 router.put('/:id/deliver',authService.allowedTo("admin", "manger"),updateOrderToDelivered)
 
+
 module.exports = router;
